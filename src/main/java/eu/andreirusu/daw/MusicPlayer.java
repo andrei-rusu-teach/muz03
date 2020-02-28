@@ -1,9 +1,9 @@
 package eu.andreirusu.daw;
 
 public class MusicPlayer {
-	ClassicalMusic music;
+	Music music;
 	
-	public MusicPlayer (ClassicalMusic music) {
+	public MusicPlayer (Music music) {
 		this.music = music;
 	}
 	
