@@ -1,11 +1,27 @@
 package eu.andreirusu.daw;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicPlayer {
+
 	private Music music;
 	
+	@Value("${musicPlayer.name}")
 	private String name;
+	@Value("25")
 	private int volume;
 	
+	@Autowired
+	@Qualifier("rockMusic")
+	public void setMusic(Music music) {
+		this.music = music;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -22,19 +38,8 @@ public class MusicPlayer {
 		this.volume = volume;
 	}
 
-	public void setMusic(Music music) {
-		this.music = music;
-	}
-
-	// Aici de fapt am un exemplu de IoC
-//	public MusicPlayer (Music music) {
-//		this.music = music;
-//	}
-
-	
-	
-	public void playMusic() {
-		System.out.println(music.getSong());
+	public String playMusic() {
+		return music.getSong();
 	}
 
 }

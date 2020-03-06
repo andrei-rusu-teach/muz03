@@ -8,12 +8,5 @@
 			http://www.springframework.org/schema/context/spring-context.xsd">
 			
 	<context:property-placeholder location="classpath:musicPlayer.properties" />
-	
-	<bean id="musicBean" class="eu.andreirusu.daw.ClassicalMusic"></bean>
-	<bean id="musicPlayer" class="eu.andreirusu.daw.MusicPlayer">
-		<property name="music" ref="musicBean"/>
-		<property name="name" value="${musicPlayer.name}"/>
-		<property name="volume" value="${musicPlayer.volume}"/>
-			
-	</bean>
+	<context:component-scan base-package="eu.andreirusu.daw"></context:component-scan>
 </beans>
